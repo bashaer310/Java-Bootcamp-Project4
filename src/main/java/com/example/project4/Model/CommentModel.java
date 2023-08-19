@@ -40,7 +40,7 @@ public class CommentModel {
     @NotNull(message = "Min Price must not be empty")
     @Positive(message ="Min Price must be a positive number" )
     //CHECK(min_price>=0)**
-    @Column(columnDefinition = "int not null ")
+    @Column(columnDefinition = "int UNSIGNED not null")
     private Integer minPrice;
 
     @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")

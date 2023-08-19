@@ -27,25 +27,26 @@ public class CustomerModel {
 
     @NotEmpty(message = "Name must be not empty")
     @Size(min = 3,message = "Name length must be more than 3")
-    @Column(columnDefinition = "varchar(12) not null CHECK(LENGTH(name)>=3)")
+    @Column(columnDefinition = "varchar(15) not null CHECK(LENGTH(name)>=3)")
     private String name;
 
     @NotEmpty(message = "Username must not be empty")
     @Size(min = 4,message = "Username length must be more than 4")
-    @UniqueElements(message = "Username must be unique")
-    @Column(columnDefinition = "varchar(10) unique not null CHECK(LENGTH(username)>=4)")
+    //@UniqueElements(message = "Username must be unique")
+    @Column(columnDefinition = "varchar(30) unique not null CHECK(LENGTH(username)>=4)")
     private String username;
 
     @NotEmpty(message = "Email must not be empty")
     @Email(message = "Email must be a valid format")
-    @UniqueElements(message = "Email must be unique")
+    //@UniqueElements(message = "Email must be unique")
     @Column(columnDefinition = "varchar(30) unique not null CHECK(email REGEXP '([a-zA-Z0-9]{6,})(@)([a-zA-Z]{6,})(\\.)([a-zA-Z]{2,})')")
     private String email;
 
     @NotEmpty(message = "Password must not be empty")
     @Size(min = 8, message = "Password length must be more than 8")
     @Pattern(regexp = "(.+)(\\d+)(\\d|.)*|(\\d+)(.+)(\\d|.)*", message = "Password must be contains characters and digits")
-    @Column(columnDefinition = "varchar(30) not null CHECK(password REGEXP '(.+)(\\d+)(\\d|.)*|(\\d+)(.+)(\\d|.)*' AND LENGTH(password)>=4)")
+    //AND password REGEXP '(.+)(\d+)(\d|.)*|(\d+)(.+)(\d|.)*'
+    @Column(columnDefinition = "varchar(30) not null CHECK(LENGTH(password)>=4)")
     private String password;
 
     @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")

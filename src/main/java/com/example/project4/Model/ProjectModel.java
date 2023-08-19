@@ -42,7 +42,7 @@ public class ProjectModel {
     @NotNull(message = "Max Price must not be empty")
     @Positive(message ="Max Price must be a positive number" )
     //CHECK(maxPrice>'0')**
-    @Column(columnDefinition = "int not null ")
+    @Column(columnDefinition = "int UNSIGNED not null")
     private Integer maxPrice;
 
 
