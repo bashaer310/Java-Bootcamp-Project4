@@ -36,7 +36,7 @@ public class ProjectModel {
 
     @NotEmpty(message = "Status must not be empty")
     @Pattern(regexp = "opened|finished")
-    @Column(columnDefinition = "varchar(4) not null CHECK(status='opened' OR status='finished')")
+    @Column(columnDefinition = "varchar(8) not null CHECK(status='opened' OR status='finished')")
     private String status;
 
     @NotNull(message = "Max Price must not be empty")
@@ -47,8 +47,8 @@ public class ProjectModel {
 
 
     @NotEmpty(message = "Category must not be empty")
-    @Pattern(regexp = "^software engineering$ | ^cyber security$ | ^game programming$ | ^web development$",message = "Category must be one of these: software engineering, game programming, web development, cyber security")
-    @Column(columnDefinition = "varchar(25) not null CHECK(category REGEXP '^software engineering$ | ^cyber security$ | ^game programming$ | ^web development$')")
+    @Pattern(regexp = "cyber|gaming|development",message = "Category must be one of these: software engineering, game programming, web development, cyber security")
+    @Column(columnDefinition = "varchar(25) not null CHECK(category REGEXP 'cyber|gaming|development')")
     private String category;
 
     @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")
