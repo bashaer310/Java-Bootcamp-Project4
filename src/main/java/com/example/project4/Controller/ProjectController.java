@@ -45,24 +45,24 @@ public class ProjectController {
     }
 
 
-    @GetMapping("/getProjectById/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity getProjectById(@PathVariable Integer id){
         return  ResponseEntity.status(200).body(projectService.getProjectById(id));
     }
-     @GetMapping("/getProjectByCategory/{category}")
+     @GetMapping("/getByCategory/{category}")
     public ResponseEntity getProjectByCategory(@PathVariable String category){
         return  ResponseEntity.status(200).body(projectService.getProjectsByCategory(category));
     }
 
-    @GetMapping("/getProjectByStatus/{status}")
+    @GetMapping("/getByStatus/{status}")
     public ResponseEntity getProjectByStatus(@PathVariable String status){
         return  ResponseEntity.status(200).body(projectService.getProjectsByStatus(status));
     }
-    @GetMapping("/getProjectByPrice/{price}")
+    @GetMapping("/getByPrice/{price}")
     public ResponseEntity getProjectByPrice(@PathVariable Integer price){
         return  ResponseEntity.status(200).body(projectService.getProjectsByPriceGreaterThan(price));
     }
-    @GetMapping("/getProjectByDate/{date}")
+    @GetMapping("/getByDate/{date}")
     public ResponseEntity getProjectByDate(@PathVariable LocalDateTime date){
         return  ResponseEntity.status(200).body(projectService.getProjectsByCreatedAtAfter(date));
     }
