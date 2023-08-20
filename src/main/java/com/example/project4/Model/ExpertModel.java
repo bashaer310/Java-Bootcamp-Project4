@@ -35,7 +35,7 @@ public class ExpertModel {
     @NotEmpty(message = "Username must not be empty")
     @Size(min = 4,message = "Username length must be more than 4")
     //@UniqueElements(message = "Username must be unique")
-    @Column(columnDefinition = "varchar(15) unique not null CHECK(LENGTH(username)>=4)")
+    @Column(columnDefinition = "varchar(20) unique not null CHECK(LENGTH(username)>=4)")
     private String username;
 
     @NotEmpty(message = "Email must not be empty")
@@ -47,12 +47,13 @@ public class ExpertModel {
     @NotEmpty(message = "Password must not be empty")
     @Size(min = 8, message = "Password length must be more than 8")
     @Pattern(regexp = "(.+)(\\d+)(\\d|.)*|(\\d+)(.+)(\\d|.)*", message = "Password must be contains characters and digits")
-    @Column(columnDefinition = "varchar(30) not null CHECK(password REGEXP '(.+)(\\d+)(\\d|.)*|(\\d+)(.+)(\\d|.)*' AND LENGTH(password)>=4)")
+    //AND password REGEXP '(.+)(\d+)(\d|.)*|(\d+)(.+)(\d|.)*'
+    @Column(columnDefinition = "varchar(30) not null CHECK(LENGTH(password)>=8)")
     private String password;
 
     @NotEmpty(message = "Major must not be empty")
-    @Pattern(regexp = "cyber|gaming|development",message = "Major must be one of these: software engineering, game programming, web development, cyber security")
-    @Column(columnDefinition = "varchar(25) not null CHECK(major REGEXP 'cyber|gaming|development')")
+    @Pattern(regexp = "web|apps|gaming",message = "Major must be one of these: apps development, game programming, web development")
+    @Column(columnDefinition = "varchar(25) not null CHECK(major REGEXP 'web|apps|gaming')")
     private String major;
 
     @NotEmpty(message = "Profile must not be empty")

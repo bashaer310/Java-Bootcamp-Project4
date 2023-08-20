@@ -48,8 +48,8 @@ public class ProjectModel {
 
 
     @NotEmpty(message = "Category must not be empty")
-    @Pattern(regexp = "cyber|gaming|development",message = "Category must be one of these: software engineering, game programming, web development, cyber security")
-    @Column(columnDefinition = "varchar(25) not null CHECK(category REGEXP 'cyber|gaming|development')")
+    @Pattern(regexp = "web|apps|gaming",message = "Category must be one of these: apps development, game programming, web development")
+    @Column(columnDefinition = "varchar(25) not null CHECK(category REGEXP 'web|apps|gaming')")
     private String category;
 
     @Column(columnDefinition = "DATE default CURRENT_DATE()")

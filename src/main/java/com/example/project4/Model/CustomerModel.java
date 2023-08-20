@@ -46,8 +46,8 @@ public class CustomerModel {
     @NotEmpty(message = "Password must not be empty")
     @Size(min = 8, message = "Password length must be more than 8")
     @Pattern(regexp = "(.+)(\\d+)(\\d|.)*|(\\d+)(.+)(\\d|.)*", message = "Password must be contains characters and digits")
-    //AND password REGEXP '(.+)(\d+)(\d|.)*|(\d+)(.+)(\d|.)*'
-    @Column(columnDefinition = "varchar(30) not null CHECK(LENGTH(password)>=4)")
+    // AND password REGEXP '(.+)(\d+)(\d|.)*|(\d+)(.+)(\d|.)*'
+    @Column(columnDefinition = "varchar(30) not null CHECK(LENGTH(password)>=8)")
     private String password;
 
     @Column(columnDefinition = "DATE default CURRENT_DATE()")
