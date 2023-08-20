@@ -33,13 +33,13 @@ public class ExpertModel {
 
     @NotEmpty(message = "Username must not be empty")
     @Size(min = 4,message = "Username length must be more than 4")
-    @UniqueElements(message = "Username must be unique")
+    //@UniqueElements(message = "Username must be unique")
     @Column(columnDefinition = "varchar(15) unique not null CHECK(LENGTH(username)>=4)")
     private String username;
 
     @NotEmpty(message = "Email must not be empty")
     @Email(message = "Email must be a valid format")
-    @UniqueElements(message = "Email must be unique")
+    //@UniqueElements(message = "Email must be unique")
     @Column(columnDefinition = "varchar(30) unique not null CHECK(email REGEXP '([a-zA-Z0-9]{6,})(@)([a-zA-Z]{6,})(\\.)([a-zA-Z]{2,})')")
     private String email;
 
