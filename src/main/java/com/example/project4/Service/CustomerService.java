@@ -49,12 +49,11 @@ public class CustomerService {
 
         return customer;
     }
-    public String getCustomerByEmailAndPassword(String email,String password){
+    public void getCustomerByEmailAndPassword(String email,String password){
         CustomerModel customer = customerRepository.findCustomerModelByEmailAndPassword(email,password);
         if(customer==null)
             throw new ApiException("Email and Password not found");
 
-        return "Successful login";
     }
 
 }

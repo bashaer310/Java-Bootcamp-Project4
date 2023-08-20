@@ -46,8 +46,8 @@ public class CustomerController {
 
     @GetMapping("/getByEmailAndPassword/{email}/{password}")
     public ResponseEntity getCustomerByEmailAndPassword(@PathVariable String email,@PathVariable String password) {
-
-        return ResponseEntity.status(200).body(customerService.getCustomerByEmailAndPassword(email,password));
+        customerService.getCustomerByEmailAndPassword(email,password);
+        return ResponseEntity.status(200).body(new ApiResponse("Successful login"));
     }
 
 
