@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -43,6 +44,6 @@ public class CommentModel {
     @Column(columnDefinition = "int UNSIGNED not null")
     private Integer minPrice;
 
-    @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")
-    private LocalDateTime createdAt;
+    @Column(columnDefinition = "DATE default CURRENT_DATE()")
+    private LocalDate createdAt;
 }

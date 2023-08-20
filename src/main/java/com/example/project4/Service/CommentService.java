@@ -7,6 +7,7 @@ import com.example.project4.Repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,7 +20,7 @@ public class CommentService {
     }
 
     public void addComment(CommentModel comment){
-        comment.setCreatedAt(java.time.LocalDateTime.now());
+        comment.setCreatedAt(LocalDate.now());
         commentRepository.save(comment);
     }
 
@@ -28,7 +29,7 @@ public class CommentService {
         if(oldComment==null)
             throw new ApiException("Id not found");
         oldComment=comment;
-        oldComment.setCreatedAt(java.time.LocalDateTime.now());
+        oldComment.setCreatedAt(LocalDate.now());
         oldComment.setId(id);
         commentRepository.save(oldComment);
     }

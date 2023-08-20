@@ -8,6 +8,7 @@ import com.example.project4.Repository.ExpertRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -20,7 +21,7 @@ public class ExpertService {
     }
 
     public void addExpert(ExpertModel expert){
-        expert.setCreatedAt(java.time.LocalDateTime.now());
+        expert.setCreatedAt(LocalDate.now());
         expertRepository.save(expert);
     }
 
@@ -29,7 +30,7 @@ public class ExpertService {
         if(oldExpert==null)
             throw new ApiException("Id not found");
         oldExpert=expert;
-        oldExpert.setCreatedAt(java.time.LocalDateTime.now());
+        oldExpert.setCreatedAt(LocalDate.now());
         oldExpert.setId(id);
         expertRepository.save(oldExpert);
     }

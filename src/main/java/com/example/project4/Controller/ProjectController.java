@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -63,7 +64,7 @@ public class ProjectController {
         return  ResponseEntity.status(200).body(projectService.getProjectsByPriceGreaterThan(price));
     }
     @GetMapping("/getByDate/{date}")
-    public ResponseEntity getProjectsByDate(@PathVariable LocalDateTime date){
+    public ResponseEntity getProjectsByDate(@PathVariable LocalDate date){
         return  ResponseEntity.status(200).body(projectService.getProjectsByCreatedAtAfter(date));
     }
     @PutMapping("/changeStatus/{id}")

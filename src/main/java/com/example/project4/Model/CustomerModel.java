@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.UniqueElements;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -49,6 +50,6 @@ public class CustomerModel {
     @Column(columnDefinition = "varchar(30) not null CHECK(LENGTH(password)>=4)")
     private String password;
 
-    @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")
-    private LocalDateTime createdAt;
+    @Column(columnDefinition = "DATE default CURRENT_DATE()")
+    private LocalDate createdAt;
 }

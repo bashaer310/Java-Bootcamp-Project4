@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class CustomerService {
     }
 
     public void addCustomer(CustomerModel customer){
-        customer.setCreatedAt(java.time.LocalDateTime.now());
+        customer.setCreatedAt(LocalDate.now());
         customerRepository.save(customer);
     }
 
@@ -30,7 +31,7 @@ public class CustomerService {
         if(oldCustomer==null)
             throw new ApiException("Id not found");
         oldCustomer=customer;
-        oldCustomer.setCreatedAt(java.time.LocalDateTime.now());
+        oldCustomer.setCreatedAt(LocalDate.now());
         oldCustomer.setId(id);
         customerRepository.save(oldCustomer);
     }

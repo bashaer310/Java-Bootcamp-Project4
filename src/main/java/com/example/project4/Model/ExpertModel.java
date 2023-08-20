@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.UniqueElements;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -50,8 +51,8 @@ public class ExpertModel {
     private String password;
 
     @NotEmpty(message = "Major must not be empty")
-    @Pattern(regexp = "^software engineering$ | ^cyber security$ | ^game programming$ | ^web development$",message = "Major must be one of these: software engineering, game programming, web development, cyber security")
-    @Column(columnDefinition = "varchar(25) not null CHECK(major REGEXP '^software engineering$ | ^cyber security$ | ^game programming$ | ^web development$')")
+    @Pattern(regexp = "cyber|gaming|development",message = "Major must be one of these: software engineering, game programming, web development, cyber security")
+    @Column(columnDefinition = "varchar(25) not null CHECK(major REGEXP 'cyber|gaming|development')")
     private String major;
 
     @NotEmpty(message = "Profile must not be empty")
@@ -59,7 +60,7 @@ public class ExpertModel {
     @Column(columnDefinition = "varchar(150) not null CHECK(LENGTH(profile)>=10)")
     private String profile;
 
-    @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")
-    private LocalDateTime createdAt;
+    @Column(columnDefinition = "DATE default CURRENT_DATE()")
+    private LocalDate createdAt;
 
 }

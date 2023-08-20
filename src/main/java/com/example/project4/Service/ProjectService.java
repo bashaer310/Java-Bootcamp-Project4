@@ -8,6 +8,7 @@ import com.example.project4.Repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ProjectService {
 
 
     public void addProject(ProjectModel project){
-        project.setCreatedAt(java.time.LocalDateTime.now());
+        project.setCreatedAt(LocalDate.now());
         projectRepository.save(project);
     }
 
@@ -32,7 +33,7 @@ public class ProjectService {
         if(oldProject==null)
             throw new ApiException("Id not found");
         oldProject=project;
-        oldProject.setCreatedAt(java.time.LocalDateTime.now());
+        oldProject.setCreatedAt(LocalDate.now());
         oldProject.setId(id);
         projectRepository.save(oldProject);
     }
@@ -76,7 +77,7 @@ public class ProjectService {
 
         return projects;
     }
-    public List<ProjectModel> getProjectsByCreatedAtAfter(LocalDateTime date){
+    public List<ProjectModel> getProjectsByCreatedAtAfter(LocalDate date){
         List<ProjectModel> projects=projectRepository.findProjectModelByCreatedAtAfter(date);
         if(projects==null)
             throw new ApiException("Projects not found");
@@ -95,6 +96,7 @@ public class ProjectService {
         else
             project.setStatus("opened");
 
+        projectRepository.save(project);
 
     }
 

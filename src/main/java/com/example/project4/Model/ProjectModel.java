@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -51,6 +52,6 @@ public class ProjectModel {
     @Column(columnDefinition = "varchar(25) not null CHECK(category REGEXP 'cyber|gaming|development')")
     private String category;
 
-    @Column(columnDefinition = "datetime default CURRENT_TIMESTAMP()")
-    private LocalDateTime createdAt;
+    @Column(columnDefinition = "DATE default CURRENT_DATE()")
+    private LocalDate createdAt;
 }
